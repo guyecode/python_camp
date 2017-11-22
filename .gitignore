@@ -8,7 +8,7 @@ __pycache__/
 
 # code IDE
 .idea/
-
+.vscode
 # Distribution / packaging
 .Python
 env/

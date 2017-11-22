@@ -6,7 +6,6 @@ import requests
 import lxml.etree
 from w3lib.html import remove_tags
 
-
 START_URL = 'http://140.143.192.76:8002/2018USNEWS世界大学排名'
 link_queue = Queue()    # 队列，保存等抓取的url
 DOWNLOADER_NUM = 10   # 启动的线程数量

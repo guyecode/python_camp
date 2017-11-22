@@ -7,29 +7,29 @@ from faker import Faker
 faker = Faker()
 website = 'http://httpbin.org'
 
-# print('GET请求')
-# r = requests.get(website)
-# print(r.status_code)
-#
-# print('\nPOST请求')
-# r = requests.post('%s/post' % website, data={'key':'value'})
-# print(r.json())
-#
-# print("\nGET参数")
-# payload = {'a': '1', 'b': '2', 'c': None, 'd': [4, 5, 6]}
-# r = requests.get('%s/get' % website, params=payload)
-# print(r.url)
-#
-# print("\n定制Headers")
-# headers = {'user-agent': faker.user_agent()}
-# r = requests.get('%s/headers' % website, headers=headers)
-# print(r.json())
-#
-# print("\n使用Cookies")
-# url = '%s/cookies' % website
-# cookies = dict(userid='123', token='xxxxxxxxxxxxxxx')
-# r = requests.get(url, cookies=cookies)
-# print(r.json())
+print('GET请求')
+r = requests.get(website)
+print(r.status_code)
+
+print('\nPOST请求')
+r = requests.post('%s/post' % website, data={'key':'value'})
+print(r.json())
+
+print("\nGET参数")
+payload = {'a': '1', 'b': '2', 'c': None, 'd': [4, 5, 6]}
+r = requests.get('%s/get' % website, params=payload)
+print(r.url)
+
+print("\n定制Headers")
+headers = {'user-agent': faker.user_agent()}
+r = requests.get('%s/headers' % website, headers=headers)
+print(r.json())
+
+print("\n使用Cookies")
+url = '%s/cookies' % website
+cookies = dict(userid='123', token='xxxxxxxxxxxxxxx')
+r = requests.get(url, cookies=cookies)
+print(r.json())
 
 
 print('\nBasic认证')
