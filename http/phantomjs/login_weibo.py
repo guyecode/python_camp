@@ -6,7 +6,7 @@ from selenium.webdriver.common.keys import Keys
 """登录微博"""
 
 if __name__ == '__main__':
-    driver = webdriver.PhantomJS()
+    driver = webdriver.PhantomJS(service_args=['--ignore-ssl-errors=true'])
     # driver = webdriver.Chrome()
     driver.delete_all_cookies()
     driver.set_window_size(1280,2400)
