@@ -6,9 +6,9 @@ import requests
 import lxml.etree
 from w3lib.html import remove_tags
 
-START_URL = 'http://140.143.192.76:8002/2018USNEWS世界大学排名'
+START_URL = 'http://qianmu.iguye.com/2018USNEWS世界大学排名'
 link_queue = Queue()    # 队列，保存等抓取的url
-DOWNLOADER_NUM = 10   # 启动的线程数量
+DOWNLOADER_NUM = 100   # 启动的线程数量
 threads = []    # 线程列表，保存Thread对象
 download_pages = 0
 
@@ -18,6 +18,7 @@ def fetch(url, raise_err=True):
     try:
         # 使用requests抓取url
         r = requests.get(url)
+        r.encoding = 'utf-8'
         download_pages += 1
         return r.text
     except Exception as e:
@@ -58,7 +59,7 @@ def parse(html):
         if link:
             link = link[0]
             if not link.startswith('http://'):
-                link = 'http://140.143.192.76:8002/%s' % link
+                link = 'http://qianmu.iguye.com/%s' % link
             # 将url放入队列
             link_queue.put(link)
 
@@ -66,6 +67,7 @@ def parse(html):
 def parse_univercity(html):
     """解析大学详情页面的信息"""
     dom = lxml.etree.HTML(filter(html))
+
     # 先获取一个父节点，以减少重复代码
     wiki_content = dom.xpath('//div[@id="wikiContent"]')[0]
     # 获取大学名称

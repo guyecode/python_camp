@@ -9,14 +9,15 @@ import requests
 from w3lib.html import remove_tags
 
 
-domain = '140.143.192.76:8002'
-start_url = 'http://140.143.192.76:8002/2018USNEWS世界大学排名'
+domain = 'qianmu.iguye.com'
+start_url = 'http://qianmu.iguye.com/2018USNEWS世界大学排名'
 link_queue = [] # 保存等待抓取的url
 
 
 def fetch(url):
     """使用request抓取页面"""
     r = requests.get(url)
+    r.encoding = 'utf-8'
     r.raise_for_status()
     return r.text
 
