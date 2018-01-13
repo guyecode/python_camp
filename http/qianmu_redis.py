@@ -116,9 +116,8 @@ if __name__ == '__main__':
         parse(fetch(start_url))
     start_time = time.time()
     # 启动线程
-    from functools import partial
     for i in range(DOWNLOADER_NUM):
-        t = threading.Thread(target=partial(downloader, i+1))
+        t = threading.Thread(target=downloader, args=(i+1,))
         t.start()
         threads.append(t)
         print('Thread(%s) started....' % t.name)
