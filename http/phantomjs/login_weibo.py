@@ -17,12 +17,17 @@ if __name__ == '__main__':
     loginname = driver.find_element_by_id('loginname')
     with open('/tmp/weibopwd') as f:
         email, pwd = f.read().split(' ')
-    loginname.send_keys(email)
-    time.sleep(0.1)
+    # loginname.send_keys(email)
+    for i in email:
+        loginname.send_keys(i)
+        time.sleep(0.1)
     loginname.send_keys(Keys.TAB)
     time.sleep(1)
     password = driver.find_element_by_xpath('//input[@name="password"]')
-    password.send_keys(pwd)
+    # password.send_keys(pwd)
+    for i in pwd:
+        password.send_keys(i)
+        time.sleep(0.1)
     time.sleep(1)
     # password.send_keys(Keys.RETURN)
     driver.find_element_by_xpath('//a[@action-type="btn_submit"]').click()
@@ -40,3 +45,6 @@ if __name__ == '__main__':
     feeds = driver.find_elements_by_xpath('//div[@node-type="feed_list_content"]')
     for feed in feeds:
         print feed.text
+
+    driver.close()
+    driver.quit()
