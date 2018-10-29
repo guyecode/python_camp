@@ -27,12 +27,12 @@ print(r.status)
 print('Baisc HTTP认证')
 auth_handler = urllib.request.HTTPBasicAuthHandler()
 auth_handler.add_password(realm='PDQ Application',
-                          uri='/basic-auth/user/passwd',
+                          uri='http://httpbin.org',
                           user='user',
                           passwd='passwd')
 opener = urllib.request.build_opener(auth_handler)
 urllib.request.install_opener(opener)
-urllib.request.urlopen(website)
+urllib.request.urlopen('http://httpbin.org/basic-auth/user/passwd')
 
 print('GET 参数')
 params = urllib.parse.urlencode(
