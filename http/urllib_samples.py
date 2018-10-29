@@ -49,12 +49,26 @@ with urllib.request.urlopen('%s/post' % website, data) as f:
     print(f.reason)
     print(f.read())
 
-# print('使用代理')
-# proxy_handler = urllib.request.ProxyHandler({'http': 'http://www.proxy.com:3128/'})
-# proxy_auth_handler = urllib.request.ProxyBasicAuthHandler()
+print('使用代理')
+proxy_handler = urllib.request.ProxyHandler({'http': 'http://iguye.com:41801/'})
+proxy_auth_handler = urllib.request.ProxyBasicAuthHandler()
 # proxy_auth_handler.add_password('realm', 'host', 'username', 'password')
-#
-# opener = urllib.request.build_opener(proxy_handler, proxy_auth_handler)
-# opener.open(website + '/ip')
+
+opener = urllib.request.build_opener(proxy_handler, proxy_auth_handler)
+opener.open(website + '/ip')
 
 
+# urlparse模块
+o = urllib.parse.urlparse('https://docs.python.org/3.6/library/urllib.parse.html?a=1')
+print(o.scheme)
+print(o.netloc)
+print(o.geturl())
+print(o.query)
+print(o.fragment)
+
+params = {'msg': '你好'}
+msg = urllib.parse.urlencode(params)
+print(msg)
+
+print(urllib.parse.parse_qs(msg))
+print(urllib.parse.parse_qsl(msg))
