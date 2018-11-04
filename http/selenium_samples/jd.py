@@ -1,6 +1,5 @@
 import sys
 import time
-import csv
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -81,5 +80,6 @@ if __name__ == '__main__':
         next_page.click()
         page += 1
 
-    pyexcel.save_as(records=rows, dest_file_name='products.xls')
+    file_name = '%s.xls' % keyword
+    pyexcel.save_as(records=rows, dest_file_name=file_name)
     sys.exit(driver.quit())
