@@ -10,8 +10,8 @@ driver = webdriver.Chrome()
 driver.set_window_size(1280,2400)
 # 发起请求，相当于我们在地址栏里输入一个URL并回车
 driver.get('http://item.jd.com/782353.html')
-print driver.title
-print driver.page_source
+print(driver.title)
+print(driver.page_source)
 # 购买数量填写10个
 e = driver.find_element_by_id('buy-num')
 e.send_keys('10')
@@ -35,8 +35,8 @@ e.send_keys(Keys.RETURN)
 left = driver.find_element_by_id('content_left')
 links = left.find_elements_by_xpath('//div[@class="result c-container "]/h3/a')
 for link in links:
-    print link.text
-    print link.get_property('href')
+    print(link.text)
+    print(link.get_property('href'))
 # kw = driver.find_element_by_id('kw')
 e.clear()
 e.send_keys('today')
