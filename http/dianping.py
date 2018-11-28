@@ -15,9 +15,6 @@ headers = {
 }
 url = 'http://www.dianping.com/shop/507576'
 r = requests.get(url, headers=headers)
-print(r.text)
-index = r.text.find('flora_3659')
-print(r.text[index: index + 1500])
 
 dom_selector = etree.HTML(r.text)
 # 获取CSS文件的url
@@ -98,9 +95,14 @@ for k, data in css_dict.items():
     # 根据高度、宽度以及偏移量，计算出坐标
     x, y = -int(left / width), -int(top / height)
     char_list = css_dict[category]['char_list']
-    # 取出
-    char_map[k] = char_list[y][x]
 
+    # 取出
+    try:
+        char_map[k] = char_list[y][x]
+    except Exception:
+        # print(k, char_list[y], y, x, left, top, css_property, css_dict[category]['svg_path'])
+        # 忽略掉一些其他地方用到的字体，由于规则不一样，可能导致报错
+        pass
 # pprint(char_map)
 # 所有的评论原始信息
 plist = dom_selector.xpath('//ul[@id="reviewlist-wrapper"]/li//p[@class="desc J-desc"]')
@@ -111,9 +113,11 @@ for p in plist:
     # 去掉源码里最外面的p标签
     source = source[23:-5]
     # 替换掉内部的span标签
-    text = re.sub(r'<span class=\"([a-zA-Z0-9\-]+)\"></span>', r'{\1}', source)
+    text = re.sub(r'<b class=\"([a-zA-Z0-9\-]+)\"></b>', r'{\1}', source)
     # pprint(text)
-    pprint(text.format(**char_map).replace('\xa0', ' ').replace('<br/>', '\n').replace('<br>', '\n'))
+    # 替换空格及换行
+    print('最终结果：')
+    print(text.format(**char_map).replace('\xa0', ' ').replace('<br/>', '\n').replace('<br>', '\n').strip())
 
 
 
