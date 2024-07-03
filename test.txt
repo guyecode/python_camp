@@ -1,4 +1,5 @@
-Manages hardware to achieve the best use and performance
+Main Functions of Operating System
+• Manages hardware to achieve the best use and performance
 by the applications software.
 • Executing applications software on hardware devices for the
 user.
@@ -11,3 +12,29 @@ operations.
 • Sharing programs and data
 • Providing data and access security
 • Recovering from errors
+
+History of Operating Systems
+• Earliest computers had no OS
+• Machine code to access resources;
+• Programs executed manually one by one.
+• 1950’s Batch processing – earliest OS
+• 1960’s Interactive processing, shared systems, real-time
+systems
+• Late 60’s/Early 70s General-purpose systems – all things to all
+users
+• Currently
+• Simple, user-friendly, GUI systems for microcomputers
+Multitasking, networking, security, distributed processing
+
+Operating Systems Components
+• Processor Manager – The programs that control the
+operations of CPU.
+• Includes Scheduler that arranges for the execution of
+programs.
+• Memory Manager – Controls data storage in main
+memory (RAM).
+• File Manager – Manages the file system on secondary
+storage – directories and files.
+• Device Manager – Coordination of peripheral devices.
+• Also known as Resource Allocator, includes its own
+scheduler components
