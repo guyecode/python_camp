@@ -1,0 +1,13 @@
+Manages hardware to achieve the best use and performance
+by the applications software.
+• Executing applications software on hardware devices for the
+user.
+• Sharing hardware resources among users
+• Scheduling of resources.
+• Providing user-friendly interfaces for users to use computers
+• Separating users from the low-level details of computer
+operations.
+• Provides valuable services for the user
+• Sharing programs and data
+• Providing data and access security
+• Recovering from errors
