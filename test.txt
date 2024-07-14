@@ -38,3 +38,37 @@ storage – directories and files.
 • Device Manager – Coordination of peripheral devices.
 • Also known as Resource Allocator, includes its own
 scheduler components
+
+
+mkdir Ass-1
+mkdir Ass-1/First
+mkdir Ass-1/Second
+mkdir Ass-1/First/IIIS001
+mkdir Ass-1/First/IPRG001
+mkdir Ass-1/Second/IBRM001
+mkdir Ass-1/Second/IAPP001
+mkdir Ass-1/Second/IWBS001
+ls -Rlh Ass-1/
+cd Ass-1/
+vi First/IIIS001/OS-1.TXT
+cp First/IIIS001/OS-1.TXT .
+cp First/IIIS001/OS-1.TXT Second/IBRM001/OS-2.TXT
+mv OS-1.TXT OS-2.TXT 
+vi OS-2.TXT 
+cp OS-2.TXT OS-3.TXT 
+vi OS-3.TXT 
+mv OS-2.TXT OS-4.TXT
+cp OS-3.TXT OS-4.TXT Second/IBRM001/
+ls Second/IBRM001/
+cp OS-3.TXT OS-4.TXT Second/IWBS001/
+ls Second/IWBS001/
+cd Second/IWBS001/
+mv OS-4.TXT OS-5.TXT
+ls
+cp OS-3.TXT ..
+ls ..
+cd ~/Ass-1/
+ls Second/IBRM001/
+ls First/IIIS001/
+cp Second/IBRM001/* First/IIIS001/
+ls First/IIIS001/
